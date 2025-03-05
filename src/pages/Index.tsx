@@ -1,3 +1,4 @@
+
 import { MapPin, Trees, Clock, Users } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
@@ -170,9 +171,14 @@ const Index = () => {
             <p className="text-lg opacity-90 max-w-2xl mx-auto mb-8">
               Join our community of mindful individuals seeking deeper connections through shared silence.
             </p>
-            <a href="/events" className="inline-block px-8 py-3 bg-white text-silence-700 rounded-lg font-medium hover:bg-opacity-90 transition-colors">
-              Find Silent Events Near You
-            </a>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="/events" className="inline-block px-8 py-3 bg-white text-silence-700 rounded-lg font-medium hover:bg-opacity-90 transition-colors">
+                Find Events Near You
+              </a>
+              <a href="/profile" className="inline-block px-8 py-3 bg-transparent border border-white text-white rounded-lg font-medium hover:bg-white/10 transition-colors">
+                Create Your Profile
+              </a>
+            </div>
           </div>
         </section>
       </main>
