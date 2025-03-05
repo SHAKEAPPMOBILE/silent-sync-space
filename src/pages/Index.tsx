@@ -1,5 +1,4 @@
-
-import { MapPin, Trees, Clock, Users, Lotus, UtensilsCrossed } from 'lucide-react';
+import { MapPin, Trees, Clock, Users, Flower, UtensilsCrossed } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import { EventCard, EventProps } from '@/components/EventCard';

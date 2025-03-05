@@ -1,5 +1,5 @@
 
-import { Lotus, Trees, UtensilsCrossed } from 'lucide-react';
+import { Flower, Trees, UtensilsCrossed } from 'lucide-react';
 
 export const EVENT_TYPES = {
   HIKE: 'Silent Hike',
@@ -14,7 +14,7 @@ export const getEventTypeIcon = (type: EventType) => {
     case EVENT_TYPES.HIKE:
       return Trees;
     case EVENT_TYPES.MEDITATION:
-      return Lotus;
+      return Flower;
     case EVENT_TYPES.LUNCH:
       return UtensilsCrossed;
     default:

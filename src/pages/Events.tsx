@@ -4,7 +4,7 @@ import { EventCard, EventProps } from '@/components/EventCard';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Input } from "@/components/ui/input";
-import { Search, MapPin, Filter } from 'lucide-react';
+import { Search, MapPin, Filter, Flower, Trees, UtensilsCrossed } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { 
   Select,
@@ -155,7 +155,7 @@ const Events = () => {
                   <SelectItem value="all">All Types</SelectItem>
                   <SelectItem value={EVENT_TYPES.MEDITATION}>
                     <div className="flex items-center gap-2">
-                      <Lotus className="h-4 w-4" />
+                      <Flower className="h-4 w-4" />
                       {EVENT_TYPES.MEDITATION}
                     </div>
                   </SelectItem>

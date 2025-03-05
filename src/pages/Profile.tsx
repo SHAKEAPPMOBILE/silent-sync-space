@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -22,6 +21,7 @@ import {
 import { toast } from "sonner";
 import { EventProps } from '@/components/EventCard';
 import { Clock, MapPin, Users, Calendar } from 'lucide-react';
+import { EVENT_TYPES } from '@/utils/eventTypes';
 
 // Mock user data
 const userData = {
@@ -40,7 +40,7 @@ const userUpcomingEvents: EventProps[] = [
   {
     id: '2',
     title: 'Mindful Sunset Walk',
-    type: 'Walking',
+    type: EVENT_TYPES.HIKE,
     date: 'Sat, 20 Jul',
     time: '06:30 PM',
     duration: 45,
@@ -52,7 +52,7 @@ const userUpcomingEvents: EventProps[] = [
   {
     id: '6',
     title: 'Candlelight Meditation',
-    type: 'Meditation',
+    type: EVENT_TYPES.MEDITATION,
     date: 'Wed, 24 Jul',
     time: '08:00 PM',
     duration: 45,
@@ -68,7 +68,7 @@ const userPastEvents: EventProps[] = [
   {
     id: '7',
     title: 'Sunrise Yoga & Meditation',
-    type: 'Yoga',
+    type: EVENT_TYPES.MEDITATION,
     date: 'Mon, 15 Jul',
     time: '06:00 AM',
     duration: 60,
@@ -80,7 +80,7 @@ const userPastEvents: EventProps[] = [
   {
     id: '8',
     title: 'Silent Reading Club',
-    type: 'Social',
+    type: EVENT_TYPES.MEDITATION,
     date: 'Sat, 8 Jul',
     time: '02:00 PM',
     duration: 90,
@@ -92,7 +92,7 @@ const userPastEvents: EventProps[] = [
   {
     id: '9',
     title: 'Urban Silent Retreat',
-    type: 'Retreat',
+    type: EVENT_TYPES.MEDITATION,
     date: 'Sun, 1 Jul',
     time: '10:00 AM',
     duration: 240,
