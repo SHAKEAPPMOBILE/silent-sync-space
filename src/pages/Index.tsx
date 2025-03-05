@@ -1,5 +1,4 @@
-
-import { MapPin, Tree, Clock, Users } from 'lucide-react';
+import { MapPin, Trees, Clock, Users } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import { EventCard, EventProps } from '@/components/EventCard';
@@ -87,7 +86,7 @@ const Index = () => {
               
               <div className="bg-white p-6 rounded-xl shadow-sm border border-border text-center">
                 <div className="w-12 h-12 bg-nature-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Tree className="h-6 w-6 text-nature-600" />
+                  <Trees className="h-6 w-6 text-nature-600" />
                 </div>
                 <h3 className="text-xl font-medium mb-2">Experience Peace</h3>
                 <p className="text-muted-foreground">
