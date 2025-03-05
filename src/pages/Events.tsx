@@ -13,13 +13,14 @@ import {
   SelectTrigger,
   SelectValue
 } from "@/components/ui/select";
+import { EVENT_TYPES, getEventTypeIcon } from '@/utils/eventTypes';
 
-// Sample events data
+// Sample events data with simplified types
 const allEvents: EventProps[] = [
   {
     id: '1',
     title: 'Morning Meditation Circle',
-    type: 'Meditation',
+    type: EVENT_TYPES.MEDITATION,
     date: 'Tomorrow',
     time: '07:00 AM',
     duration: 30,
@@ -30,63 +31,63 @@ const allEvents: EventProps[] = [
   },
   {
     id: '2',
-    title: 'Mindful Sunset Walk',
-    type: 'Walking',
+    title: 'Forest Trails Silent Hike',
+    type: EVENT_TYPES.HIKE,
     date: 'Sat, 20 Jul',
-    time: '06:30 PM',
-    duration: 45,
+    time: '09:30 AM',
+    duration: 60,
     location: 'Golden Gate Park, San Francisco',
     attendees: 12,
     maxAttendees: 20,
-    description: 'Experience the beauty of sunset through a silent, contemplative walk through the park.',
+    description: 'Experience the beauty of nature through a silent, contemplative walk through forest trails.',
   },
   {
     id: '3',
-    title: 'Tea & Silence Gathering',
-    type: 'Social',
+    title: 'Mindful Eating Experience',
+    type: EVENT_TYPES.LUNCH,
     date: 'Sun, 21 Jul',
-    time: '10:00 AM',
+    time: '12:00 PM',
     duration: 60,
     location: 'Serenity Cafe, Boston',
     attendees: 5,
     maxAttendees: 10,
-    description: 'Share the experience of mindful tea drinking in complete silence. Tea provided.',
+    description: 'Share the experience of mindful eating in complete silence. Food provided.',
   },
   {
     id: '4',
-    title: 'Forest Bathing Experience',
-    type: 'Nature',
+    title: 'Mountain View Hike',
+    type: EVENT_TYPES.HIKE,
     date: 'Mon, 22 Jul',
     time: '09:00 AM',
     duration: 90,
     location: 'Redwood Forest, California',
     attendees: 6,
     maxAttendees: 12,
-    description: 'Immerse yourself in the healing atmosphere of the forest through mindful presence.',
+    description: 'Immerse yourself in the healing atmosphere of the forest through silent hiking.',
   },
   {
     id: '5',
-    title: 'Silent Co-Working Session',
-    type: 'Work',
+    title: 'Zen Meditation Session',
+    type: EVENT_TYPES.MEDITATION,
     date: 'Tue, 23 Jul',
     time: '01:00 PM',
-    duration: 120,
+    duration: 45,
     location: 'Mindful Hub, Chicago',
     attendees: 10,
     maxAttendees: 20,
-    description: 'Boost your productivity in a shared silent workspace. Bring your own laptop.',
+    description: 'A guided meditation session focused on mindfulness and presence.',
   },
   {
     id: '6',
-    title: 'Candlelight Meditation',
-    type: 'Meditation',
+    title: 'Farm-to-Table Silent Lunch',
+    type: EVENT_TYPES.LUNCH,
     date: 'Wed, 24 Jul',
-    time: '08:00 PM',
-    duration: 45,
-    location: 'Zen Center, Seattle',
+    time: '12:30 PM',
+    duration: 75,
+    location: 'Green Gardens, Seattle',
     attendees: 15,
     maxAttendees: 25,
-    description: 'A peaceful evening meditation by candlelight with gentle guidance for beginners.',
+    description: 'A silent lunch featuring fresh, locally-sourced ingredients in a peaceful garden setting.',
   },
 ];
 
@@ -152,11 +153,24 @@ const Events = () => {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="all">All Types</SelectItem>
-                  <SelectItem value="Meditation">Meditation</SelectItem>
-                  <SelectItem value="Walking">Walking</SelectItem>
-                  <SelectItem value="Social">Social</SelectItem>
-                  <SelectItem value="Nature">Nature</SelectItem>
-                  <SelectItem value="Work">Work</SelectItem>
+                  <SelectItem value={EVENT_TYPES.MEDITATION}>
+                    <div className="flex items-center gap-2">
+                      <Lotus className="h-4 w-4" />
+                      {EVENT_TYPES.MEDITATION}
+                    </div>
+                  </SelectItem>
+                  <SelectItem value={EVENT_TYPES.HIKE}>
+                    <div className="flex items-center gap-2">
+                      <Trees className="h-4 w-4" />
+                      {EVENT_TYPES.HIKE}
+                    </div>
+                  </SelectItem>
+                  <SelectItem value={EVENT_TYPES.LUNCH}>
+                    <div className="flex items-center gap-2">
+                      <UtensilsCrossed className="h-4 w-4" />
+                      {EVENT_TYPES.LUNCH}
+                    </div>
+                  </SelectItem>
                 </SelectContent>
               </Select>
             </div>

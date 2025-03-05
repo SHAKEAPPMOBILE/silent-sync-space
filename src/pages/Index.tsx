@@ -1,17 +1,18 @@
 
-import { MapPin, Trees, Clock, Users } from 'lucide-react';
+import { MapPin, Trees, Clock, Users, Lotus, UtensilsCrossed } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import { EventCard, EventProps } from '@/components/EventCard';
 import { SilentTimer } from '@/components/SilentTimer';
 import Footer from '@/components/Footer';
+import { EVENT_TYPES } from '@/utils/eventTypes';
 
-// Sample event data
+// Sample event data with simplified types
 const featuredEvents: EventProps[] = [
   {
     id: '1',
     title: 'Morning Meditation Circle',
-    type: 'Meditation',
+    type: EVENT_TYPES.MEDITATION,
     date: 'Tomorrow',
     time: '07:00 AM',
     duration: 30,
@@ -22,27 +23,27 @@ const featuredEvents: EventProps[] = [
   },
   {
     id: '2',
-    title: 'Mindful Sunset Walk',
-    type: 'Walking',
+    title: 'Forest Trails Silent Hike',
+    type: EVENT_TYPES.HIKE,
     date: 'Sat, 20 Jul',
-    time: '06:30 PM',
-    duration: 45,
+    time: '09:30 AM',
+    duration: 60,
     location: 'Golden Gate Park, San Francisco',
     attendees: 12,
     maxAttendees: 20,
-    description: 'Experience the beauty of sunset through a silent, contemplative walk through the park.',
+    description: 'Experience the beauty of nature through a silent, contemplative walk through forest trails.',
   },
   {
     id: '3',
-    title: 'Tea & Silence Gathering',
-    type: 'Social',
+    title: 'Mindful Eating Experience',
+    type: EVENT_TYPES.LUNCH,
     date: 'Sun, 21 Jul',
-    time: '10:00 AM',
+    time: '12:00 PM',
     duration: 60,
     location: 'Serenity Cafe, Boston',
     attendees: 5,
     maxAttendees: 10,
-    description: 'Share the experience of mindful tea drinking in complete silence. Tea provided.',
+    description: 'Share the experience of mindful eating in complete silence. Food provided.',
   },
 ];
 

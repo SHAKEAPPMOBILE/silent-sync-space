@@ -10,11 +10,12 @@ import {
   CardTitle
 } from "@/components/ui/card";
 import { JoinModal } from './JoinModal';
+import { EventType, getEventTypeIcon } from '@/utils/eventTypes';
 
 export interface EventProps {
   id: string;
   title: string;
-  type: string;
+  type: EventType;
   date: string;
   time: string;
   duration: number;
@@ -27,6 +28,7 @@ export interface EventProps {
 
 export const EventCard = ({ event }: { event: EventProps }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const EventTypeIcon = getEventTypeIcon(event.type);
   
   return (
     <>
@@ -39,9 +41,12 @@ export const EventCard = ({ event }: { event: EventProps }) => {
               className="w-full h-full object-cover"
             />
           ) : (
-            <div className="absolute inset-0 bg-gradient-to-r from-nature-200 to-silence-200"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-nature-200 to-silence-200 flex items-center justify-center">
+              <EventTypeIcon className="h-16 w-16 text-nature-500/50" />
+            </div>
           )}
-          <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm py-1 px-2 rounded-full text-xs font-medium">
+          <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm py-1 px-2 rounded-full text-xs font-medium flex items-center gap-1">
+            <EventTypeIcon className="h-3 w-3" />
             {event.type}
           </div>
         </div>
