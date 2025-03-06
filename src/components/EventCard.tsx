@@ -1,16 +1,11 @@
-
 import { useState } from 'react';
 import { MapPin, Clock, Users, Calendar } from 'lucide-react';
 import { Button } from "@/components/ui/button";
-import { 
-  Card, 
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle
-} from "@/components/ui/card";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { JoinModal } from './JoinModal';
+import { ChatModal } from './ChatModal';
 import { EventType, getEventTypeIcon } from '@/utils/eventTypes';
+import { toast } from 'sonner';
 
 export interface EventProps {
   id: string;
@@ -27,8 +22,25 @@ export interface EventProps {
 }
 
 export const EventCard = ({ event }: { event: EventProps }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isJoinModalOpen, setIsJoinModalOpen] = useState(false);
+  const [isChatModalOpen, setIsChatModalOpen] = useState(false);
   const EventTypeIcon = getEventTypeIcon(event.type);
+  
+  const handleJoin = () => {
+    // For demo purposes, we'll simulate finding another person
+    // In a real app, this would check the database for matches
+    const hasMatch = Math.random() > 0.5;
+    
+    if (hasMatch) {
+      toast.success("Someone else is interested in this activity!");
+      setIsChatModalOpen(true);
+    } else {
+      setIsJoinModalOpen(true);
+    }
+  };
+
+  // Extract city from location
+  const city = event.location.split(',')[1]?.trim() || event.location;
   
   return (
     <>
@@ -82,7 +94,7 @@ export const EventCard = ({ event }: { event: EventProps }) => {
         <CardFooter className="pt-2">
           <Button 
             className="w-full bg-silence-600 hover:bg-silence-700 transition-all duration-300"
-            onClick={() => setIsModalOpen(true)}
+            onClick={handleJoin}
           >
             Join Event
           </Button>
@@ -91,8 +103,16 @@ export const EventCard = ({ event }: { event: EventProps }) => {
       
       <JoinModal 
         event={event}
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
+        isOpen={isJoinModalOpen} 
+        onClose={() => setIsJoinModalOpen(false)} 
+      />
+      
+      <ChatModal
+        isOpen={isChatModalOpen}
+        onClose={() => setIsChatModalOpen(false)}
+        chatPartner="Anonymous User"
+        eventType={event.type}
+        city={city}
       />
     </>
   );
